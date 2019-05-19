@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 public class FacebookTest {
     WebDriver wD = null;
 
@@ -29,21 +32,21 @@ public class FacebookTest {
         wD.findElement(By.id("pass")).sendKeys(arg1);
     }
 
-    @When("^Click on Login$")
+    @When("^I click on Login$")
     public void clickLogin(){
         wD.findElement(By.id("loginbutton")).click();
     }
 
-    @Then("Login failed")
+    @Then("^Login failed$")
     public void loginFailed(){
-        if(wD.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110"
-            )){
-            System.out.println("Test1 Pass");
-        } else {
-            System.out.println("Test1 Failed");
-        }
+        assertTrue(wD.getCurrentUrl().equalsIgnoreCase(
+                "https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110"));
         wD.close();
+    }
+
+    @Then("^Login is succesfull$")
+    public void LoginSuccess(){
+        fail();
     }
 
 }

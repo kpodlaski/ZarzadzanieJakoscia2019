@@ -7,6 +7,12 @@ Background:
 Scenario:
     When I enter username 'Adam'
     And I enter password 'Adam'
-    And Click on Login
+    And I click on Login
     Then Login failed
+
+Scenario:
+    When I enter username '....'
+    And I enter password '...'
+    And I click on Login
+    Then Login is succesfull
 
