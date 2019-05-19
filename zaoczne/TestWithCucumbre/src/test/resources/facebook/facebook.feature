@@ -4,7 +4,7 @@ Background:
     User navigates to FB page
     Given Im on Facebook Page
 
-Scenario:
+Scenario: Bad Login
     When I enter username 'Adam'
     And I enter password 'Adam'
     And I click on Login
